@@ -12,10 +12,10 @@ description: あなたのNext.jsアプリケーションで環境変数を追加
     <li><a href="https://github.com/vercel/next.js/tree/canary/examples/environment-variables">環境変数の例</a></li>
   </ul></details>
 
-Next.jsは環境変数を組み込みサポートします。これにより次のことが可能です：
+Next.jsは環境変数を組み込みサポートしています。これにより次のことが可能です：
 
-- [`.env.local`を環境変数の読み込みに利用する](#loading-environment-variables)
-- [`NEXT_PUBLIC_`のプレフィクス付与により環境変数をブラウザからアクセス可能にする](#exposing-environment-variables-to-the-browser)
+- [`.env.local`を使い環境変数を読み込む](#loading-environment-variables)
+- [`NEXT_PUBLIC_`というプレフィクスを付与することで環境変数をブラウザ側に提示する](#exposing-environment-variables-to-the-browser)
 
 ## 環境変数を読み込む
 
@@ -45,9 +45,9 @@ export async function getStaticProps() {
 }
 ```
 
-> **注意**：機密情報をサーバーサイドに留めておくため、Next.jsはビルド時に`process.env.*`の値を正しい値に置き換えます。この結果、`process.env`は標準的なJavaScriptオブジェクトではなく、[オブジェクトの分割代入](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)ができません。例えば、`const { PUBLISHABLE_KEY } = process.env`*ではなく*、`process.env.PUBLISHABLE_KEY`である必要があります。
+> **注意**：機密情報をサーバーサイドに留めておくため、Next.jsはビルド時に`process.env.*`の値を正しい値に置き換えます。このため`process.env`は標準的なJavaScriptオブジェクトではなく、<br>[オブジェクトの分割代入](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)ができません。例えば、`const { PUBLISHABLE_KEY } = process.env`*ではなく*、`process.env.PUBLISHABLE_KEY`である必要があります。
 
-> **注意**：Next.jsは`.env*`ファイルの中の変数（`$VAR`）を自動的に展開します。これにより次のようにして他の機密情報にもアクセスすることができます：
+> **注意**：Next.jsは`.env*`ファイルの中の変数（`$VAR`）を自動的に展開します。この機能を使うとある値の定義箇所で別の値を参照することができます：
 >
 > ```bash
 > # .env
@@ -64,16 +64,16 @@ export async function getStaticProps() {
 > # .env
 > A=abc
 >
-> # becomes "preabc"
+> # "preabc" となる
 > WRONG=pre$A
 >
-> # becomes "pre$A"
+> # "pre$A" となる
 > CORRECT=pre\$A
 > ```
 
 ## 環境変数をブラウザに提示する
 
-デフォルトでは環境変数はNode.js環境においてのみ利用可能です。それらはブラウザに対して提示されないということです。
+デフォルトでは環境変数はNode.js環境においてのみ利用可能です。これはつまりそれらの変数はブラウザに対して提示されないということです。
 
 環境変数をブラウザに対して提示するには、変数に`NEXT_PUBLIC_`というプレフィクスを付与する必要があります。例えば：
 
@@ -105,7 +105,7 @@ Next.jsでは、`.env`（すべての環境で有効）、`.env.development`（�
 
 `.env.local`は常にデフォルト値を上書きします。
 
-> **注意**：`.env`、`.env.development`、そして `.env.production`ファイルは、デフォルト値の定義のためにあなたのリポジトリに含めておくべきです。**一方`.env.*.local`は**それらのファイルがバージョン管理対象であることを示すために**`.gitignore`に書き加えておくべき**です。`.env.local`は機密情報を保管することができる場所です。
+> **注意**：`.env`、`.env.development`、そして `.env.production`ファイルは、デフォルト値の定義のためにあなたのリポジトリに含めておくべきです。一方、バージョン管理対象であることを示すために**`.env.*.local`は`.gitignore`に書き加えておくべき**です。`.env.local`は機密情報を保管することができる場所です。
 
 ## Vercelプラットフォームの環境変数
 
@@ -123,11 +123,11 @@ Vercel CLIをデプロイに使用する場合、プロジェクトに必ず[`.v
 
 ## テスト環境の環境変数
 
-`development`（開発環境）と`production`（本番環境）とは別に、第3の選択肢が利用できます。それは `test`（テスト環境）です。開発環境や本番環境のためのそれと同じように、`.env.test`ファイルを使うことで、テスト環境のためのデフォルト値を定義することができます（それらの値は前述の2環境とは共有されません）。
+`development`（開発環境）と`production`（本番環境）とは別に、第3の選択肢があります。それは `test`（テスト環境）です。開発環境や本番環境のためのそれと同じように、`.env.test`ファイルを使うことで、テスト環境のためのデフォルト値を定義することができます（それらの値は前述の2環境とは共有されません）。
 
 この方法は`jest`や`cypress`のようなツールを利用してテストを実行する際に便利です。このようなケースではテストだけを目的とした環境変数を設定する必要があるからです。テスト環境用のデフォルト値は`NODE_ENV`に`test`が設定されている時にロードされますが、この値はふつうテスト・ツールが設定してくれるため、あなた自身の手で何かをする必要はありません。
 
- `test`環境と、`development`および`production`の両環境との間には、心に留めておくべき小さな違いがあります：`.env.local`は読み込まれません。<br>これは、同じテストはいずれの開発メンバーの環境でも同じ結果となることが期待されるためです。開発メンバー各自の環境の`.env.local`（これはデフォルト値をオーバーライドするために利用されます）を無視して実行することで、 各テストで同じ環境変数のデフォルト値を利用することになります。
+`test`環境と、`development`および`production`の両環境との間には、心に留めておくべき小さな違いがあります：`.env.local`は読み込まれません。<br>これは、同じテストはいずれの開発メンバーの環境でも同じ結果となることが期待されるためです。開発メンバー各自の環境の`.env.local`（これはデフォルト値をオーバーライドするために利用されます）を無視して実行することで、 各テストで同じ環境変数のデフォルト値を利用することになります。
 
 > **注意**：環境変数のデフォルト値と同様に、`.env.test`はリポジトリに含めるべきですが、`.env.test.local`は含めるべきではありません。 `.env*.local`は`.gitignore`によりバージョン管理外にすべきです。
 
