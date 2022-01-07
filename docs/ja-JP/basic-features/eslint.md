@@ -95,7 +95,7 @@ Next.jsはESLintプラグイン、[`eslint-plugin-next`](https://www.npmjs.com/p
 | ✔️ | [next/no-title-in-document-head](https://nextjs.org/docs/messages/no-title-in-document-head) | next/documentでHeadとともに&lt;title&gt;を用いることをできなくする。 |
 | ✔️ | [next/no-unwanted-polyfillio](https://nextjs.org/docs/messages/no-unwanted-polyfillio) | Polyfill.ioから提供されるポリフィルが重複することを防止する。 |
 | ✔️ | [next/inline-script-id](https://nextjs.org/docs/messages/inline-script-id) | インライン・コンテンツを伴ういnext/scriptコンポーネントのID属性を強制する。 |
-| ✔️ | next/no-typos | <br>[Next.jsのデータ取得関数](https://nextjs.org/docs/basic-features/data-fetching)の宣言でタイプミスがないことを確実にする。 |
+| ✔️ | next/no-typos | [Next.jsのデータ取得関数](https://nextjs.org/docs/basic-features/data-fetching)の宣言でタイプミスがないことを確実にする。 |
 | ✔️ | [next/next-script-for-ga](https://nextjs.org/docs/messages/next-script-for-ga) | 必要なスクリプトを遅延読み込みするためScriptコンポーネントを使用する。 |
 
 - ✔：推奨設定で有効化される。
