@@ -82,21 +82,21 @@ Next.jsはESLintプラグイン、[`eslint-plugin-next`](https://www.npmjs.com/p
 
 |  | ルール | 説明 |
 | :-: | --- | --- |
-| ✔️ | [next/google-font-display](https://nextjs.org/docs/messages/google-font-display) | Google Fontsとともにoptionalもしくはswapのfont-display記述子の挙動を強制する。 |
-| ✔️ | [next/google-font-preconnect](https://nextjs.org/docs/messages/google-font-preconnect) | Google Fontsとともにpreconnectを利用することを強制する。 |
-| ✔️ | [next/link-passhref](https://nextjs.org/docs/messages/link-passhref) | 独自のLinkコンポーネントとともにpassHrefプロパティを利用することを強制する。 |
-| ✔️ | [next/no-css-tags](https://nextjs.org/docs/messages/no-css-tags) | 手書きのスタイルシート・タグを防止する。 |
-| ✔️ | [next/no-document-import-in-page](https://nextjs.org/docs/messages/no-document-import-in-page) | next/documentをpages/document.jsの外部でインポートすることをできなくする。 |
-| ✔️ | [next/no-head-import-in-document](https://nextjs.org/docs/messages/no-head-import-in-document) | pages/document.jsでnext/headをインポートすることをできなくする。 |
-| ✔️ | [next/no-html-link-for-pages](https://nextjs.org/docs/messages/no-html-link-for-pages) | ページへのHTMLアンカー・リンクをLinkコンポーネントを用いずに作成することを禁じる。 |
-| ✔️ | [next/no-img-element](https://nextjs.org/docs/messages/no-img-element) | HTML標準の&lt;img&gt;要素の利用を禁じる。 |
-| ✔️ | [next/no-page-custom-font](https://nextjs.org/docs/messages/no-page-custom-font) | 特定ページ独自のfontsを防止する。 |
-| ✔️ | [next/no-sync-scripts](https://nextjs.org/docs/messages/no-sync-scripts) | 同期的スクリプトを禁じる。 |
-| ✔️ | [next/no-title-in-document-head](https://nextjs.org/docs/messages/no-title-in-document-head) | next/documentでHeadとともに&lt;title&gt;を用いることをできなくする。 |
-| ✔️ | [next/no-unwanted-polyfillio](https://nextjs.org/docs/messages/no-unwanted-polyfillio) | Polyfill.ioから提供されるポリフィルが重複することを防止する。 |
-| ✔️ | [next/inline-script-id](https://nextjs.org/docs/messages/inline-script-id) | インライン・コンテンツを伴ういnext/scriptコンポーネントのID属性を強制する。 |
-| ✔️ | next/no-typos | [Next.jsのデータ取得関数](https://nextjs.org/docs/basic-features/data-fetching)の宣言でタイプミスがないことを確実にする。 |
-| ✔️ | [next/next-script-for-ga](https://nextjs.org/docs/messages/next-script-for-ga) | 必要なスクリプトを遅延読み込みするためScriptコンポーネントを使用する。 |
+| ✔️  | [next/google-font-display](https://nextjs.org/docs/messages/google-font-display) | Google Fontsとともにoptionalもしくはswapのfont-display記述子の挙動を強制する。 |
+| ✔️  | [next/google-font-preconnect](https://nextjs.org/docs/messages/google-font-preconnect) | Google Fontsとともにpreconnectを利用することを強制する。 |
+| ✔️  | [next/link-passhref](https://nextjs.org/docs/messages/link-passhref) | 独自のLinkコンポーネントとともにpassHrefプロパティを利用することを強制する。 |
+| ✔️  | [next/no-css-tags](https://nextjs.org/docs/messages/no-css-tags) | 手書きのスタイルシート・タグを防止する。 |
+| ✔️  | [next/no-document-import-in-page](https://nextjs.org/docs/messages/no-document-import-in-page) | next/documentをpages/document.jsの外部でインポートすることをできなくする。 |
+| ✔️  | [next/no-head-import-in-document](https://nextjs.org/docs/messages/no-head-import-in-document) | pages/document.jsでnext/headをインポートすることをできなくする。 |
+| ✔️  | [next/no-html-link-for-pages](https://nextjs.org/docs/messages/no-html-link-for-pages) | ページへのHTMLアンカー・リンクをLinkコンポーネントを用いずに作成することを禁じる。 |
+| ✔️  | [next/no-img-element](https://nextjs.org/docs/messages/no-img-element) | HTML標準の&lt;img&gt;要素の利用を禁じる。 |
+| ✔️  | [next/no-page-custom-font](https://nextjs.org/docs/messages/no-page-custom-font) | 特定ページ独自のfontsを防止する。 |
+| ✔️  | [next/no-sync-scripts](https://nextjs.org/docs/messages/no-sync-scripts) | 同期的スクリプトを禁じる。 |
+| ✔️  | [next/no-title-in-document-head](https://nextjs.org/docs/messages/no-title-in-document-head) | next/documentでHeadとともに&lt;title&gt;を用いることをできなくする。 |
+| ✔️  | [next/no-unwanted-polyfillio](https://nextjs.org/docs/messages/no-unwanted-polyfillio) | Polyfill.ioから提供されるポリフィルが重複することを防止する。 |
+| ✔️  | [next/inline-script-id](https://nextjs.org/docs/messages/inline-script-id) | インライン・コンテンツを伴ういnext/scriptコンポーネントのID属性を強制する。 |
+| ✔️  | next/no-typos | [Next.jsのデータ取得関数](https://nextjs.org/docs/basic-features/data-fetching)の宣言でタイプミスがないことを確実にする。 |
+| ✔️  | [next/next-script-for-ga](https://nextjs.org/docs/messages/next-script-for-ga) | 必要なスクリプトを遅延読み込みするためScriptコンポーネントを使用する。 |
 
 - ✔：推奨設定で有効化される。
 
